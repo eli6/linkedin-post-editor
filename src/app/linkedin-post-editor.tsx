@@ -52,7 +52,10 @@ const LinkedInPostEditor: React.FC = () => {
     const { name, value } = e.target;
     setCurrentPost({ ...currentPost, [name]: value });
     if (name === 'content') {
-      setCursorPosition(e.target.selectionStart);
+      const cursorPos = e.target.selectionStart;
+      if (cursorPos !== null) {
+        setCursorPosition(cursorPos);
+      }
     }
   };
 
